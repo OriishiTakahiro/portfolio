@@ -6,7 +6,23 @@ jobs:
       - image: circleci/node:8
     steps:
       - checkout
-      - run: ls -lah docs
+      - add_ssh_keys:
+          fingerprints:
+            - "33:49:f9:39:b3:4b:e8:8e:ed:29:74:4c:6f:46:c8:78"
+      - restore_cache:
+        keys:
+          - yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install node dependencies
+          command: yarn install
+      - save_cache:
+          paths:
+            - node_modules
+          key: yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      # Deploy to gh-page branch
+      - run: git config --global user.name "CCI"
+      - run: git config --global user.email "<>"
+      - run: yarn run deploy
 
 orbs:
   hugo: circleci/hugo@0.2
@@ -17,7 +33,6 @@ workflows:
       - hugo/build:
           html-proofer: true
           source: hugo/
-          destination: docs/
           version: '0.55'
       - deploy:
           filters:
