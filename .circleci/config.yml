@@ -32,7 +32,7 @@ workflows:
     jobs:
       - hugo/build:
           html-proofer: true
-          source: hugo/
+          source: project/hugo/
           version: '0.55'
       - deploy:
           filters:
