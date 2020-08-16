@@ -23,6 +23,7 @@ jobs:
       # Deploy to gh-page branch
       - run: git config --global user.name $CCI_USER
       - run: git config --global user.email $CCI_EMAIL
+      - run: pwd
       - run: yarn run deploy
 
 orbs:
