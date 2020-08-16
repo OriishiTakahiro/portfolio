@@ -5,9 +5,8 @@ jobs:
     docker:
       - image: circleci/node:8
     steps:
-      - attach_workspace:
-        at: my-site
-      - run: ls -lah my-site
+      - checkout
+      - run: ls -lah docs
 
 orbs:
   hugo: circleci/hugo@0.2
