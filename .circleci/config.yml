@@ -46,7 +46,7 @@ jobs:
             git --work-tree << pipeline.parameters.hugo_dir >>/<< pipeline.parameters.arti_dir >> checkout --orphan << pipeline.parameters.ghp_branch >>
             git --work-tree << pipeline.parameters.hugo_dir >>/<< pipeline.parameters.arti_dir >> add --all
             git --work-tree << pipeline.parameters.hugo_dir >>/<< pipeline.parameters.arti_dir >> commit -m '[ci skip] Deploy to << pipeline.parameters.ghp_branch >>'
-            git push -q "https://${GITHUB_TOKEN}@github.com:OriishiTakahiro/portfolio.git" HEAD:<< pipeline.parameters.ghp_branch >> --force
+            git push -q https://${GITHUB_TOKEN}@github.com:OriishiTakahiro/portfolio.git HEAD:<< pipeline.parameters.ghp_branch >> --force
             # yarn run push-dir --dir=hugo/public --branch=gh-pages --message='[ci skip] Deploy to gh-pages' --cleanup -t
 
 orbs:
