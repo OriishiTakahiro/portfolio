@@ -1,0 +1,28 @@
+version: 2.1
+
+jobs:
+  deploy:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - attach_workspace:
+        at: my-site
+      - run: ls -lah my-site
+
+orbs:
+  hugo: circleci/hugo@0.2
+
+workflows:
+  main:
+    jobs:
+      - hugo/build:
+          html-proofer: true
+          source: hugo/
+          destination: docs/
+          version: '0.55'
+      - deploy:
+          filters:
+            branches:
+              only: master
+          requires:
+            - hugo/build

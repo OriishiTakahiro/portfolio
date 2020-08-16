@@ -1,0 +1,230 @@
+baseURL = "https://OriishiTakahiro.github.io/portfolio"
+languageCode = "ja-jp"
+title = "居石峻寛のポートフォリオ"
+theme = "hugo-orbit-theme"
+
+# Do not build files for websites. Need them? Set to false
+disableRSS = true
+disableSitemap = true
+disable404 = true
+
+[params]
+
+# Meta
+    description = "居石峻寛のポートフォリオサイト"
+    author = "Oriishi Takahiro"
+
+# Theme styles
+
+    # The original template comes with 6 colour schemes. You may choose styles below.
+    # "styles.css", "styles-2.css", "styles-3.css", "styles-4.css", "styles-5.css", "styles-6.css"
+    # are available. Also the source LESS files are included so
+    # it’s quick and easy to change the styling and colour scheme.
+
+    styles = "styles.css"
+
+# Sidebar sections
+
+    # Profile section
+    [params.profile]
+        name = "居石 峻寛(Oriishi Takahiro)"
+        tagline = "エンジニア"
+        avatar = "profile.jpg"
+
+    # Contact section
+    [params.contact]
+        enable = true
+
+        [[params.contact.list]]
+        class = "website"
+        icon = "fa-globe"
+        url = "https://takahiro0914.hatenablog.com/archive"
+        title = "ブログ"
+
+        [[params.contact.list]]
+        class = "github"
+        icon = "fa-github"
+        url = "https://github.com/OriishiTakahiro"
+        title = "github"
+
+        [[params.contact.list]]
+        class = "twitter"
+        icon = "fa-twitter"
+        url = "https://twitter.com/hetare70914"
+        title = "@hetare70914"
+
+    # Education section
+    [params.education]
+        enable = true
+        title = "Education"
+
+        [[params.education.list]]
+        degree = "建設システム工学科"
+        college = "阿南工業高等専門学校"
+        dates = "2011 - 2012"
+
+        [[params.education.list]]
+        degree = "制御情報工学科"
+        college = "阿南工業高等専門学校"
+        dates = "2012 - 2016"
+
+        [[params.education.list]]
+        degree = "知能情報工学科"
+        college = "徳島大学 工学部"
+        dates = "2016 - 2018"
+
+        [[params.education.list]]
+        degree = "知能情報システム工学コース"
+        college = "徳島大学大学院 先端技術科学教育部 博士前期課程"
+        dates = "2018 - 2020"
+
+    # Languages section
+    [params.language]
+        enable = false
+        title = "Languages"
+
+        [[params.language.list]]
+        language = "日本語"
+        level = "ネイティブ"
+
+        [[params.language.list]]
+        language = "English"
+        level = "あまりできない"
+
+    # Interests section
+    [params.interests]
+        enable = true
+        title = "Interests"
+
+        [[params.interests.list]]
+        interest = "Cloud Infrastructure"
+
+        [[params.interests.list]]
+        interest = "Cloud-Infra"
+
+        [[params.interests.list]]
+        interest = "Backend"
+
+        [[params.interests.list]]
+        interest = "Middleware"
+
+# Main body sections
+
+    # You may use markdown in summary, details and intro fields. But don't overdose, it's resume!:)
+
+    # Summary section
+    [params.summary]
+        enable = true
+        icon = "fa-user"
+        title = "Career Profile"
+        summary = "2020年合同会社DMM.comに入社。検索チームに所属。"
+
+    # Experiences section
+    [params.experiences]
+        enable = true
+        icon = "fa-briefcase"
+        title = "Experiences"
+
+        [[params.jobs.list]]
+        position = "エンジニア (検索チーム)"
+        dates = "2020.04 - Present"
+        company = "合同会社DMM.com"
+        details = "2020年度新卒入社、研修の後に7月から検索チームに配属。"
+
+    # Projects section
+    [params.projects]
+        enable = true
+        icon = "fa-archive"
+        title = "Projects"
+        intro = "**学業および仕事での成果物**"
+
+        [[params.projects.list]]
+        title = "OriishiTakahiro/conflr"
+        url = "https://github.com/OriishiTakahiro/conflr"
+        icon = "fa-terminal"
+        tagline = "Confluenceの記事をSolrから取得し、フロントエンドから検索できるようにした(Solrの練習プロジェクト)"
+
+        [[params.projects.list]]
+        title = "PKI-enabled OSPFv3 for Reliable IP Traceback"
+        url = "http://www.bncss.org/index.php/bncss/article/view/124"
+        icon = "fa-graduation-cap"
+        tagline = "IPv6ネットワークで動作するL2プロトコルのOSPFv3にPKIと鍵配送の仕組みを導入し、それをquaggaルーティングスイートに実装"
+    # Skills section
+    [params.skills]
+        enable = true
+        icon = "fa-rocket"
+        title = "Skills & Proficiency"
+
+        # infrastructure
+
+        [[params.skills.list]]
+        skill = "AWS"
+        level = "30%"
+        description = "EC2/RDS/ECS Fargate"
+
+        # middleware
+
+        [[params.skills.list]]
+        skill = "Docker"
+        level = "60%"
+        description = "docker-composeを使ったローカル開発/ECS"
+
+        [[params.skills.list]]
+        skill = "Apache Solr"
+        level = "40%"
+        description = "簡単なmanaged-schemaの設計/簡単なクエリの発行"
+
+        [[params.skills.list]]
+        skill = "MySQL"
+        level = "40%"
+        description = "テーブル設計/基礎的なSQLの発行"
+
+        [[params.skills.list]]
+        skill = "Redis"
+        level = "20%"
+        description = "基礎的な使用"
+
+        # tools
+
+        [[params.skills.list]]
+        skill = "Terraform"
+        level = "40%"
+        description = "AWS上でのインフラ構築"
+
+
+        [[params.skills.list]]
+        skill = "Go"
+        level = "60%"
+        description = "APIサーバの構築"
+
+        [[params.skills.list]]
+        skill = "PHP"
+        level = "20%"
+        description = "基礎文法"
+
+        [[params.skills.list]]
+        skill = "Scala"
+        level = "10%"
+        description = "これから使い始めます"
+
+        [[params.skills.list]]
+        skill = "Python/Ruby"
+        level = "40%"
+        description = "簡単なスクリプトとしての利用"
+
+        [[params.skills.list]]
+        skill = "React"
+        level = "20%"
+        description = "簡単なUI開発/Ajaxの使用"
+
+    # Footer section
+
+    # The original template is released under the Creative Commons Attribution 3.0 License.
+    # Please keep the original attribution link when using for your own project.
+    # If you'd like to use the template without the attribution,
+    # you can check out other license options via template author's website: themes.3rdwavemedia.com
+    # 
+    # As for Hugo port you may rewrite the "Ported for..." line with setting your name below.
+
+    [params.footer]
+        copyright = "OriishiTakahiro"

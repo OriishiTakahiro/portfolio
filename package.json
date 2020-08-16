@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "push-dir": "^0.4.1"
+  },
+  "scripts": {
+    "deploy": "push-dir --dir=artifacts --branch=gh-pages --message='[ci skip] Deploy to gh-pages'"
+  }
+}
