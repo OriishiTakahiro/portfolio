@@ -10,8 +10,8 @@ jobs:
           fingerprints:
             - "33:49:f9:39:b3:4b:e8:8e:ed:29:74:4c:6f:46:c8:78"
       - restore_cache:
-        keys:
-          - yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          keys:
+            - yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: Install node dependencies
           command: yarn install
