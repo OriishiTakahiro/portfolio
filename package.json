@@ -3,6 +3,7 @@
     "push-dir": "^0.4.1"
   },
   "scripts": {
-    "deploy": "push-dir --dir=public --branch=gh-pages --message='[ci skip] Deploy to gh-pages' --cleanup -t"
+    "commit": "git add ${npm_config_dir} && git commit -m '[ci skip] Generate static file'",
+    "deploy": "push-dir --dir=${npm_config_dir} --branch=${npm_config_branch} --message='[ci skip] Deploy to gh-pages' --cleanup -t"
   }
 }
