@@ -1,4 +1,5 @@
-baseURL = "https://OriishiTakahiro.github.io/portfolio"
+baseURL = "https://oriishitakahiro.github.io/portfolio/"
+
 languageCode = "ja-jp"
 title = "居石峻寛のポートフォリオ"
 theme = "hugo-orbit-theme"
