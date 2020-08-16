@@ -6,7 +6,7 @@ jobs:
       - image: circleci/node:8
     steps:
       - attach_workspace:
-          at: hugo/public
+          at: hugo
       - add_ssh_keys:
           fingerprints:
             - "33:49:f9:39:b3:4b:e8:8e:ed:29:74:4c:6f:46:c8:78"
