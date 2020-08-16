@@ -20,8 +20,8 @@ jobs:
             - node_modules
           key: yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
       # Deploy to gh-page branch
-      - run: git config --global user.name "CCI"
-      - run: git config --global user.email "<>"
+      - run: git config --global user.name $CCI_USER
+      - run: git config --global user.email $CCI_EMAIL
       - run: yarn run deploy
 
 orbs:

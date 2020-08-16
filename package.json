@@ -3,6 +3,6 @@
     "push-dir": "^0.4.1"
   },
   "scripts": {
-    "deploy": "push-dir --dir=public --branch=gh-pages --message='[ci skip] Deploy to gh-pages'"
+    "deploy": "push-dir --dir=public --branch=gh-pages --message='[ci skip] Deploy to gh-pages' --cleanup -t"
   }
 }
