@@ -1,9 +1,5 @@
 {
   "dependencies": {
     "push-dir": "^0.4.1"
-  },
-  "scripts": {
-    "commit": "git add ${npm_config_dir} && git commit -m '[ci skip] Generate static file'",
-    "deploy": "push-dir --dir=${npm_config_dir} --branch=${npm_config_branch} --message='[ci skip] Deploy to gh-pages' --cleanup -t"
   }
 }
