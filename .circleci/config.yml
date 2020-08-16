@@ -1,5 +1,16 @@
 version: 2.1
 
+parameters:
+  hugo_dir:
+    type: string
+    default: "hugo"
+  arti_dir:
+    type: string
+    default: "public"
+  ghp_branch:
+    type: string
+    default: "gh-pages"
+
 jobs:
   deploy:
     docker:
@@ -22,11 +33,21 @@ jobs:
             - node_modules
           key: yarn-packages-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
-          name: Deploy to gh-page branch
+          name: Prepare to deploying to gh-page branch
           command: |
             git config --global user.name $CCI_USER
             git config --global user.email $CCI_EMAIL
-            yarn run push-dir --dir=hugo/public --branch=gh-pages --message='[ci skip] Deploy to gh-pages' --cleanup -t
+            git add << pipeline.parameters.hugo_dir >>/<< pipeline.parameters.arti_dir >>
+            git commit -m "Generate static files"
+
+      - run:
+          name:
+          command: |
+            git --work-tree << pipeline.parameters.hugo_dir >>/<< pipeline.parameters.arti_dir >> checkout --orphan << pipeline.parameters.ghp_branch >>
+            git --work-tree << pipeline.parameters.hugo_dir >>/<< pipeline.parameters.arti_dir >> add --all
+            git --work-tree << pipeline.parameters.hugo_dir >>/<< pipeline.parameters.arti_dir >> commit -m '[ci skip] Deploy to << pipeline.parameters.ghp_branch >>'
+            git push -q "https://${GITHUB_TOKEN}/@github.com:OriishiTakahiro/portfolio.git" HEAD:<< pipeline.parameters.ghp_branch >> --force
+            # yarn run push-dir --dir=hugo/public --branch=gh-pages --message='[ci skip] Deploy to gh-pages' --cleanup -t
 
 orbs:
   hugo: circleci/hugo@0.2
@@ -36,8 +57,8 @@ workflows:
     jobs:
       - hugo/build:
           html-proofer: true
-          source: hugo/
-          destination: public/
+          source: << pipeline.parameters.hugo_dir >>/
+          destination: << pipeline.parameters.arti_dir >>/
           version: '0.55'
       - deploy:
           filters:
