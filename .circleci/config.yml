@@ -26,8 +26,6 @@ jobs:
           command: |
             git config --global user.name $CCI_USER
             git config --global user.email $CCI_EMAIL
-            git add hugo/public
-            git commit -m '[ci skip] Generate static file'
             yarn run push-dir --dir=hugo/public --branch=gh-pages --message='[ci skip] Deploy to gh-pages' --cleanup -t
 
 orbs:
